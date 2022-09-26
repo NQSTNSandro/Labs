@@ -6,33 +6,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ContainerTest {
 
+
     @Test
-    void add() {
-        Container container = new Container();
-        container.add(16);
-        assertEquals(16, container.get(0));
+    void isOperator() {
+        assertTrue(Container.isOperator('+'));
     }
 
     @Test
-    void remove() {
-        Container container = new Container();
-        container.add(5);
-        container.add(8);
-        container.add(10);
-        container.remove(1);
-        assertEquals(10, container.get(1));
-
+    void priority() {
+        assertEquals(1, Container.priority('+'));
     }
 
     @Test
-    void show() {
-
-    }
-
-    @Test
-    void get() {
-        Container container = new Container();
-        container.add(5);
-        assertEquals(5, container.get(0));
+    void eval() {
+        assertEquals(6, Container.eval("2+2*2"));
     }
 }
