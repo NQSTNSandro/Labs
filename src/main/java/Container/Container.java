@@ -18,23 +18,23 @@ public class Container {
         for (int i = 0; i < 5000000; i++) {
             linkedList.add(i);
         }
-        System.out.println("Время работы операции add для LinkedList (в милисекундах) = " + (System.currentTimeMillis() - start_0));
+        System.out.println("Время работы операции add для LinkedList, метод работал 5000000 раз (в милисекундах) = " + (System.currentTimeMillis() - start_0));
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
             linkedList.add(1235, Integer.MAX_VALUE);
         }
-        System.out.println("Время работы операции add(в середину) для LinkedList (в милисекундах) = " + (System.currentTimeMillis() - start));
+        System.out.println("Время работы операции add(в середину) для LinkedList, метод работал 100 раз (в милисекундах) = " + (System.currentTimeMillis() - start));
         long start_1 = System.currentTimeMillis();
         for (int i = 0; i < 10000; i++) {
             linkedList.get(i);
         }
-        System.out.println("Время работы операции get для LinkedList (в милисекундах) = " + (System.currentTimeMillis() - start_1));
+        System.out.println("Время работы операции get для LinkedList, метод работал 10000 раз (в милисекундах) = " + (System.currentTimeMillis() - start_1));
         long start_2 = System.currentTimeMillis();
         for (int i = 5000000; i >= 1; i--) {
             linkedList.remove(i);
         }
-        System.out.println("Время работы операции remove для List (в милисекундах) = " + (System.currentTimeMillis() - start_2));
+        System.out.println("Время работы операции remove для List, метод работал 5000000 раз (в милисекундах) = " + (System.currentTimeMillis() - start_2));
     }
 
     public void testArrayList() {
@@ -42,23 +42,23 @@ public class Container {
         for (int i = 0; i < 5000000; i++) {
             list.add(i);
         }
-        System.out.println("Время работы операции add для List (в милисекундах) = " + (System.currentTimeMillis() - start_0));
+        System.out.println("Время работы операции add для List, метод работал 5000000 раз (в милисекундах) = " + (System.currentTimeMillis() - start_0));
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
             list.add(1235, Integer.MAX_VALUE);
         }
-        System.out.println("Время работы операции add(в середину) для List (в милисекундах) = " + (System.currentTimeMillis() - start));
+        System.out.println("Время работы операции add(в середину) для List, метод работал 100 раз (в милисекундах) = " + (System.currentTimeMillis() - start));
         long start_1 = System.currentTimeMillis();
         for (int i = 0; i < 10000; i++) {
             list.get(i);
         }
-        System.out.println("Время работы операции get для List (в милисекундах) = " + (System.currentTimeMillis() - start_1));
+        System.out.println("Время работы операции get для List, метод работал 10000 раз (в милисекундах) = " + (System.currentTimeMillis() - start_1));
         long start_2 = System.currentTimeMillis();
         for (int i = 5000000; i >= 1; i--) {
             list.remove(i);
         }
-        System.out.println("Время работы операции remove для List (в милисекундах) = " + (System.currentTimeMillis() - start_2));
+        System.out.println("Время работы операции remove для List, метод работал 5000000 раз (в милисекундах) = " + (System.currentTimeMillis() - start_2));
     }
 }
 
