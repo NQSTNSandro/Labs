@@ -12,5 +12,7 @@ import java.util.List;
 public class LabsApplication {
     public static void main(String[] args) {
         SpringApplication.run(LabsApplication.class, args);
+        Container container=new Container();
+        System.out.println(container.eval("5+2-(6+4*10))"));
     }
 }
