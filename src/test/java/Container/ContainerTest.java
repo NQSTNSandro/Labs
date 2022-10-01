@@ -15,10 +15,6 @@ class ContainerTest {
 
 
     @Test
-    void processOperator() {
-    }
-
-    @Test
     void errors() {
         Container container=new Container();
         assertEquals(false,container.errors("5+2-(6+4*10)/x"));
