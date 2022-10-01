@@ -9,16 +9,24 @@ class ContainerTest {
 
     @Test
     void isOperator() {
-        assertTrue(Container.isOperator('+'));
+        Container container=new Container();
+        assertEquals(true,container.isOperator('+'));
+    }
+
+
+    @Test
+    void processOperator() {
     }
 
     @Test
-    void priority() {
-        assertEquals(1, Container.priority('+'));
+    void errors() {
+        Container container=new Container();
+        assertEquals(false,container.errors("5+2-(6+4*10)/x"));
     }
 
     @Test
     void eval() {
-        assertEquals(6, Container.eval("2+2*2"));
+        Container container=new Container();
+        assertEquals(-7,container.eval("5+2-(6+10)/8*(5+2)"));
     }
 }
