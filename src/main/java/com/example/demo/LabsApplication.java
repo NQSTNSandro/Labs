@@ -1,25 +1,21 @@
 package com.example.demo;
 
-import Container.Container;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages ={"servises","repositories"} )
+@EnableScheduling
+@EntityScan("moduls")
+@EnableJpaRepositories("servises")
 public class LabsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LabsApplication.class, args);
-		Container container=new Container();
-		container.add(5);
-		container.add(8);
-		container.add(16);
-		container.add(4);
-		container.add(20);
-		container.show();
-		container.remove(2);
-		container.show();
-		System.out.println(container.get(1));
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LabsApplication.class, args);
+    }
 
 
 }
