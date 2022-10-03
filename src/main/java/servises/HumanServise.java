@@ -31,18 +31,18 @@ public class HumanServise {
             List<Dto> humans = map.get(department);
             for (Dto dto : humans) {
                 Human human = new Human();
-                /*human.setDivision(division);*/
+                human.setDivision(division);
                 human.setId(dto.getId());
                 human.setName(dto.getName());
                 human.setDayOfBirt(dto.getDayOfBirt());
                 human.setSalary(dto.getSalary());
                 human.setGender(dto.getGender());
-                /*repository.save(human);*/
+                repository.save(human);
             }
 
         }
     }
-    @Scheduled(fixedRateString = "5000")
+    @Scheduled(fixedRateString = "1000000")
     public void requestSessions(){
         func();
     }

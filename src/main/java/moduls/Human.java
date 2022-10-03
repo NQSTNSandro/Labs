@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @Getter
 @NoArgsConstructor
 @Table(name = "Humans")
+@Entity
 public class Human {
     @javax.persistence.Id
     @Column(name = "id")
@@ -17,12 +18,13 @@ public class Human {
     @Column(name = "name")
     private String Name;
     @Column(name = "BirtDate")
-
     private String DayOfBirt;
     @Column(name = "Salary")
     private Integer Salary;
-
-    /*private Division division;*/
+/*
+    @Column(name = "Division_id")
+    private AggregateReference<Division,Integer> division;
+*/
     @Column(name = "Gender")
     private Genders gender;
 
