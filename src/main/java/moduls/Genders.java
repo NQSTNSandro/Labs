@@ -14,12 +14,4 @@ public enum Genders {
     public String getValue() {
         return value;
     }
-    public static Genders fromValue(String value) {
-        for (Genders b : Genders.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
 }

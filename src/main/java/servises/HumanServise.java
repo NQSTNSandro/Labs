@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.*;
 
 
@@ -18,32 +19,42 @@ import java.util.*;
 @Slf4j
 @RequiredArgsConstructor
 @EnableAutoConfiguration
+@Transactional
 public class HumanServise {
     @Autowired
     private final HumanRepository repository;
+    private final DivisionRepository divisionRepository;
     private final DtoService service;
+
+    /**
+     * func()- заносит данные из dto в Human и division, а также сохраняет их в бд.
+     */
 
     public void func() {
         Map<String, List<Dto>> map = service.func();
+        List<Human> humanList = new ArrayList<>();
         for (String department : map.keySet()) {
             Division division = new Division();
             division.setDivision(department);
             List<Dto> humans = map.get(department);
+            Division entity = divisionRepository.save(division);
             for (Dto dto : humans) {
                 Human human = new Human();
-                human.setDivision(division);
                 human.setId(dto.getId());
                 human.setName(dto.getName());
                 human.setDayOfBirt(dto.getDayOfBirt());
                 human.setSalary(dto.getSalary());
                 human.setGender(dto.getGender());
-                repository.save(human);
+                human.setDivision(entity);
+                humanList.add(human);
             }
-
         }
+        repository.saveAll(humanList);
+        System.out.println("Ok");
     }
+
     @Scheduled(fixedRateString = "1000000")
-    public void requestSessions(){
+    public void requestSessions() {
         func();
     }
 }

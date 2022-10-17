@@ -4,6 +4,11 @@ import com.opencsv.bean.CsvBindByName;
 import lombok.Data;
 import java.math.BigDecimal;
 
+/**
+ * @version Lab4
+ * @author Sergey Bochkov
+ * class Dto собирает данные из файла.
+ */
 @Data
 public class Dto {
     @CsvBindByName(column = "id")

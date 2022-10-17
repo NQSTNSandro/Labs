@@ -1,15 +1,10 @@
 package moduls;
 
-
-import com.opencsv.bean.CsvBindByName;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Setter
@@ -18,15 +13,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Divisions")
 public class Division {
-    @javax.persistence.Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer Id;
-    @Column(name = "Division")
+    private Long id;
+    @Column(name = "Division", unique = true)
     private String division;
 
     @Override
     public String toString() {
-        return "Id=" + Id + ",Division=" + division;
+        return "Id=" + id + ",Division=" + division;
     }
 
 

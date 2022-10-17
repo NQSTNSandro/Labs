@@ -13,7 +13,10 @@ import java.math.BigDecimal;
 @Entity
 public class Human {
     @javax.persistence.Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Key")
+    private Long Key;
+    @Column(name = "Id", unique = true)
     private BigDecimal Id;
     @Column(name = "name")
     private String Name;
@@ -21,15 +24,13 @@ public class Human {
     private String DayOfBirt;
     @Column(name = "Salary")
     private Integer Salary;
-/*
-    @Column(name = "Division_id")
-    private AggregateReference<Division,Integer> division;
-*/
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Division_id", referencedColumnName = "id")
+    private Division division;
     @Column(name = "Gender")
     private Genders gender;
-
     @Override
     public String toString() {
-        return "Human[id=" + Id + ",name=" + Name + ",BirtDate=" + DayOfBirt + ",Salary=" + Salary + "]";
+        return "Human[id=" + Id + ",name=" + Name + ",BirtDate=" + DayOfBirt + ",Salary=" + Salary + ",Gender=" + gender + "]";
     }
 }
