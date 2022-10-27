@@ -6,21 +6,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ContainerTest {
 
-    @Test
-    void AddAndGet() {
-        Container container = new Container();
-        container.add(16);
-        assertEquals(16, container.get(0));
-    }
 
     @Test
-    void remove() {
-        Container container = new Container();
+    void AddGetRemove() {
+        Container container=new Container();
         container.add(5);
+        container.add(6);
+        container.add(7);
         container.add(8);
-        container.add(10);
-        container.remove(1);
-        assertEquals(10, container.get(1));
+        container.add(9);
+        assertEquals(5, container.getSize());
+        container.remove(2);
+        assertEquals(8,container.get(2));
+        assertEquals(5,container.get(0));
+        container.add(11);
+        container.add(11);
+        container.add(11);
+        container.add(11);
+        container.add(11);
+        assertEquals(10, container.getSize());
 
     }
 }
